@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="is">
+	<head>
+		<title>Orðafjör</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="/css/normalize.css">
+		<link rel="stylesheet" type="text/css" href="/css/main.css">
+		<link rel="icon" type="image/png" href="/img/ordafjor-icon.png">
+	</head>
+	<body>
+		<div id="splash">
+			<div class="center">
+				<h1>Velkomin/n í</h1>
+				<img src="/img/ordafjor-logo.png" alt="Orðafjör">
+			</div>
+			<button id="play-button" class="btn">Spila</button>
+		</div>
+		<div id="identity">
+			<h2 id="your-username"></h2>
+		</div>
+		<div id="start" hidden>
+			<h2 class="word"></h2>
+			<form id="start-game">
+				<label for="word">Veldu orð:</label>
+				<input type="text" id="word">
+				<label for="word-description">Gefðu útskýringu:</label>
+				<input type="text" id="word-description">
+				<label for="submit-word">Ætlar þú að taka af skarið?</label>
+				<input type="submit" id="submit-word" value="Já, hefja leik" class="btn">
+			</form>
+		</div>
+		<div id="master" hidden>
+			<h1>Þú stjórnar</h1>
+			<p id="master-message"></p>
+			<p id="results" hidden></p>
+			<button id="send-descriptions" class="btn" hidden>Senda út útskýringar</button>
+			<div id="chosen-descriptions"></div>
+			<h2 class="word"></h2>
+			<ul id="posted-votes" class="vote-list"></ul>
+			<ul id="descriptions" class="description-list" hidden></ul>
+			<button id="finish-game" class="btn" hidden>Næsta orð</button>
+		</div>
+		<div id="slave" hidden>
+			<h2 class="word"></h2>
+			<form id="describe">
+				<label for="description">Útskýrðu orðið:</label>
+				<input type="text" id="description">
+				<input type="submit" value="Senda útskýringu" class="btn">
+			</form>
+			<h2 id="wait" hidden>Bíðum eftir öllum hinum...</h2>
+			<ul id="votes" class="vote-list"></ul>
+			<ul id="posted-descriptions" class="description-list" hidden></ul>
+		</div>
+		<div id="error"></div>
+		<form action="" class="join-form" id="new-player">
+			<label for="name">Veldu þér nafn:</label>
+			<input type="text" id="name" autofocus>
+			<input type="submit" value="Taka þátt!" class="btn">
+		</form>
+		<section class="players">
+			<h1>Í leiknum eru:</h1>
+			<ul id="players"></ul>
+		</section>
+		<script src="/socket.io/socket.io.js"></script>
+		<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+		<script type="text/javascript" src="/scripts/ordafjor-stateless.js"></script>
+	</body>
+</html>
